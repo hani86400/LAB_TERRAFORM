@@ -1,0 +1,38 @@
+# https://github.com/Sanjeev-Thiyagarajan/Terraform-Crash-Course
+
+
+
+# Create a VPC
+resource "aws_vpc" "vpc_20_11" {
+  cidr_block = "10.20.0.0/16"
+  tags = {
+    Name = "vpc_20_11"
+  }
+}
+
+
+variable "subnet_prefix" {
+  description = "cidr block for the subnet"
+
+}
+
+
+resource "aws_subnet" "subnet-1" {
+  vpc_id            = aws_vpc.vpc_20_11.id
+  cidr_block        = var.subnet_prefix[0].cidr_block
+  availability_zone = "us-east-1a"
+
+  tags = {
+    Name = var.subnet_prefix[0].name
+  }
+}
+
+resource "aws_subnet" "subnet-2" {
+  vpc_id            = aws_vpc.vpc_20_11.id
+  cidr_block        = var.subnet_prefix[1].cidr_block
+  availability_zone = "us-east-1a"
+
+  tags = {
+    Name = var.subnet_prefix[1].name
+  }
+}
