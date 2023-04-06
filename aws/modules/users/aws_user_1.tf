@@ -1,0 +1,25 @@
+resource "aws_iam_user" "demo1" {
+  count = 1
+  name  = "theuser${count.index + 1}"
+}
+
+
+variable "username" {
+  type    = list(string)
+  default = ["shath", "raed", "abeer"]
+}
+
+resource "aws_iam_user" "demo2" {
+  count = length(var.username)
+  name  = element(var.username, count.index)
+}
+
+output "user_arn" { value = aws_iam_user.demo2.*.arn }
+
+
+resource "aws_iam_user" "demo3" {
+  for_each = toset(["yoyo", "hyhy", "hommmd"])
+  name     = each.value
+}
+
+

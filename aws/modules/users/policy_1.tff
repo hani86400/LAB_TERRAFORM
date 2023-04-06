@@ -1,0 +1,12 @@
+
+
+resource "aws_iam_user_policy" "s3_list_only_policy" {
+
+ count = length(var.username)
+  name  = "S3ListOnlyPolicy"
+  user  = element(var.username, count.index)
+
+ policy = file("policy1.json")
+
+
+}

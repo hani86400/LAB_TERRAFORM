@@ -1,0 +1,14 @@
+variable "names" {
+    type = list
+    default = ["daniel", "ada'", "john wick"]
+}
+
+output "show_names" {
+    # similar to Python's list comprehension
+    value = [for n in var.names : upper(n)]
+}
+
+output "short_upper_names" {
+  # filter the resulting list by specifying a condition:
+  value = [for name in var.names : upper(name) if length(name) > 7]
+}
