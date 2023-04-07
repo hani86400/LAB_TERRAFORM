@@ -1,12 +1,11 @@
-module "mykeys" {
-  # path to the module's directory
-  # the source argument is mandatory for all modules.
-  source = "./modules/key_pair"
+#module "mykeys" {   source = "./modules/mod_key_pair" }
 
-  # module inputs
-  #ami_id = var.ami_id
-  #instance_type = var.instance_type
-  #servers = var.servers
+variable "username" {
+  type    = list(string)
+  default = ["shath2", "raed2", "abeer1"]
 }
 
-module "myusers" { source = "./modules/users" }
+module "myusers" { 
+#  source = "./modules/mod_users" 
+  inp_username = var.username
+  }

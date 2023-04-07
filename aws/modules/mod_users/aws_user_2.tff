@@ -14,7 +14,9 @@ resource "aws_iam_user" "demo2" {
   name  = element(var.username, count.index)
 }
 
-output "user_arn" { value = aws_iam_user.demo2.*.arn }
+output "user_arn" {
+  value = aws_iam_user.demo2.*.arn
+}
 
 
 resource "aws_iam_user" "demo3" {
