@@ -1,0 +1,73 @@
+# module.myusers.aws_iam_user.userdemovar1[0]:
+resource "aws_iam_user" "userdemovar1" {
+    arn           = "arn:aws:iam::411831862144:user/shath2"
+    force_destroy = false
+    id            = "shath2"
+    name          = "shath2"
+    path          = "/"
+    tags          = {}
+    tags_all      = {}
+    unique_id     = "AIDAV7YYXQOAHDFE5OWWF"
+}
+
+# module.myusers.aws_iam_user.userdemovar1[1]:
+resource "aws_iam_user" "userdemovar1" {
+    arn           = "arn:aws:iam::411831862144:user/raed2"
+    force_destroy = false
+    id            = "raed2"
+    name          = "raed2"
+    path          = "/"
+    tags          = {}
+    tags_all      = {}
+    unique_id     = "AIDAV7YYXQOAO5IQRAXII"
+}
+
+# module.myusers.aws_iam_user.userdemovar1[2]:
+resource "aws_iam_user" "userdemovar1" {
+    arn           = "arn:aws:iam::411831862144:user/abeer1"
+    force_destroy = false
+    id            = "abeer1"
+    name          = "abeer1"
+    path          = "/"
+    tags          = {}
+    tags_all      = {}
+    unique_id     = "AIDAV7YYXQOAMIBBCMNXV"
+}
+# module.vpc.data.aws_region.current:
+data "aws_region" "current" {
+    description = "US East (N. Virginia)"
+    endpoint    = "ec2.us-east-1.amazonaws.com"
+    id          = "us-east-1"
+    name        = "us-east-1"
+}
+
+# module.vpc.aws_vpc.vpc:
+resource "aws_vpc" "vpc" {
+    arn                                  = "arn:aws:ec2:us-east-1:411831862144:vpc/vpc-0f209050bfd2a8eae"
+    assign_generated_ipv6_cidr_block     = false
+    cidr_block                           = "10.123.0.0/16"
+    default_network_acl_id               = "acl-0817d8a6d14947017"
+    default_route_table_id               = "rtb-0a894270d84c45273"
+    default_security_group_id            = "sg-0a27cf3705134ad88"
+    dhcp_options_id                      = "dopt-380c7042"
+    enable_classiclink                   = false
+    enable_classiclink_dns_support       = false
+    enable_dns_hostnames                 = false
+    enable_dns_support                   = true
+    enable_network_address_usage_metrics = false
+    id                                   = "vpc-0f209050bfd2a8eae"
+    instance_tenancy                     = "default"
+    ipv6_netmask_length                  = 0
+    main_route_table_id                  = "rtb-0a894270d84c45273"
+    owner_id                             = "411831862144"
+    tags                                 = {
+        "Name"    = "hani_vpc_1"
+        "Owner"   = "hani1"
+        "Project" = "hanipoject_1"
+    }
+    tags_all                             = {
+        "Name"    = "hani_vpc_1"
+        "Owner"   = "hani1"
+        "Project" = "hanipoject_1"
+    }
+}
